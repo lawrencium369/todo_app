@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>My To-Do List</h1>
+    <ol class="todo-list">
+        {% for task in tasks %}
+            <li>
+                <div class="task-title">{{ task.title }}</div>
+                <div class="task-desc">{{ task.description }}</div>
+            </li>
+        {% empty %}
+            <li>No tasks added yet.</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

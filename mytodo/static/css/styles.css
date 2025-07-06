@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f9fafb;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.todo-list {
+    list-style: decimal inside;
+    padding-left: 0;
+}
+
+.todo-list li {
+    margin-bottom: 20px;
+}
+
+.task-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.task-desc {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.4;
+}
