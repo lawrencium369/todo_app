@@ -7,12 +7,16 @@
             <li>
                 <div class="task-title">{{ task.title }}</div>
                 <div class="task-desc">{{ task.description }}</div>
+                {% if not task.completed %}
+                    <form method="post" action="{% url 'mark_completed' task.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success btn-sm">Mark as Completed</button>
+                    </form>
+                {% endif %}
+                {% if task.completed %}
+                    <span class="badge bg-success">Completed</span>
+                {% endif %}
             </li>
-            {% if task.completed %}
-                <span class="badge bg-success">Completed</span>
-            {% else %}
-                <span class="badge bg-warning">Pending</span>
-            {% endif %}
         {% empty %}
             <li>No tasks added yet.</li>
         {% endfor %}

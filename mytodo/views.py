@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Task
+from django.shortcuts import redirect, get_object_or_404
 
 def home(request):
     context = {
@@ -8,3 +9,9 @@ def home(request):
     }
     return render(request, 'mytodo/home.html', context)
 
+def mark_completed(request, task_id):
+    if request.method == "POST":
+        task = get_object_or_404(Task, id=task_id)
+        task.completed = True
+        task.save()
+    return redirect('mytodo_home')  
