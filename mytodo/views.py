@@ -15,3 +15,9 @@ def mark_completed(request, task_id):
         task.completed = True
         task.save()
     return redirect('mytodo_home')  
+
+def delete_task(request, task_id):
+    if request.method == "POST":
+        task = get_object_or_404(Task, id=task_id)
+        task.delete()
+    return redirect('mytodo_home')
